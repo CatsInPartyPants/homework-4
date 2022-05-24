@@ -141,10 +141,8 @@ int main()
 		}
 	}
 	
-
 	//task2
-
-	
+		
 	int number;
 	int n1, n2, n3, n4, n5, n6;
 	cout << "enter a six-digit number -> ";
@@ -175,7 +173,6 @@ int main()
 
 	}
 
-
 	//task3
 		
 	int user_num;
@@ -200,10 +197,8 @@ int main()
 		cout << second_num * 1000 + first_num * 100 + fourth_num * 10 + third_num << endl;
 	}
 
-
 	//task4
-
-	
+		
 	int user_numbers[7] {0};
 	cout << "Enter 7 numbers:\n";
 	for (int i = 0; i <= 6; i++) {
@@ -260,8 +255,5 @@ int main()
 	else {
 		cout << "Error weight!";
 	}
-
-
-
 }
 
