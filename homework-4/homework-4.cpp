@@ -4,6 +4,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <cmath>
+#include <vector>
 
 using namespace std;
 
@@ -122,6 +123,7 @@ int main()
 
 	//task2
 
+	/*
 	int number;
 	int n1, n2, n3, n4, n5, n6;
 	cout << "Введите целое шестизначное число -> ";
@@ -151,8 +153,57 @@ int main()
 		}
 
 	}
+	*/
 
 	//task3
+
+	/*
+	int user_num;
+	int first_num, second_num, third_num, fourth_num;
+	cout << "Введите четырехзначное число ->";
+	cin >> user_num;
+	if (user_num / 1000 < 1 || user_num / 1000 > 9) {
+		cout << "Введено не четырехзначное число!\n";
+	}
+	else {
+		cout << "Введено четырехзначное число\n";
+		fourth_num = user_num % 10;
+		user_num /= 10;
+		third_num = user_num % 10;
+		user_num /= 10;
+		second_num = user_num % 10;
+		user_num /= 10;
+		first_num = user_num;
+		cout << "До модификации:\n";
+		cout << first_num << " " << second_num << " " << third_num << " " << fourth_num << endl;
+		cout << "После модификации:\n";
+		cout << second_num * 1000 + first_num * 100 + fourth_num * 10 + third_num << endl;
+	}
+	*/
+
+	//task4
+
+	/*
+	int user_numbers[7] {0};
+	cout << "Введите 7 чисел:\n";
+	for (int i = 0; i <= 6; i++) {
+		int user_number;
+		cin >> user_number;
+		user_numbers[i] = user_number;
+		if(i<6)	cout << "Следующее:\n";
+	}
+	
+	int max_value=0;
+	for (int i = 0; i <= 6; i++) {
+		if (user_numbers[i] > max_value) {
+			max_value = user_numbers[i];
+		}
+	}
+	cout << "Наибольшее введенное число: " << max_value << endl;
+	*/
+
+	//task 5
+
 
 }
 
