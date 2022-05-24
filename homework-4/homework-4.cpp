@@ -16,7 +16,7 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	//task1
-	/*
+	
 	double userSelect, temp;
 	char userAnswer;
 
@@ -199,7 +199,7 @@ int main()
 	cout << "The max number is : " << max_value << endl;
 
 	//task 5
-	*/
+	
 	double diss_ab, diss_bc, weight;
 	double fuel = 300;
 
