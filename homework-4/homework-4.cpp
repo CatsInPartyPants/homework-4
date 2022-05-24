@@ -8,26 +8,7 @@
 using namespace std;
 
 //task 5 (start)
-
-void TravelVerification(double distance1, double distance2, double fuel_level, double fuelConsumption) {
-	if (fuel_level / fuelConsumption < distance1) {
-		cout << "Can't reach to B (disstance is to big)\n";
-	}
-	else {
-		fuel_level = fuel_level - (fuelConsumption * distance1);
-		cout << "You are in B. fuel is: " << fuel_level << endl;
-		cout << "You need " << (distance2 * fuelConsumption) << " liters of the fuel to reach C.\n";
-		if ((distance2 * fuelConsumption) - fuel_level < 0) {
-			cout << "You have enough fuel to reach C!\n";
-		}
-		else {
-			cout << "We need to add " << (distance2 * fuelConsumption) - fuel_level << " liters of the fuel minimum.\n";
-		}
-		if ((distance2 * fuelConsumption) + fuel_level > 300) {
-			cout << "And the tank of the plane is 300 liters only. We can't fly to C!\n";
-		}
-	}
-}
+void TravelVerification(double distance1, double distance2, double fuel_level, double fuelConsumption);
 
 int main()
 {
@@ -35,7 +16,7 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	//task1
-	
+	/*
 	double userSelect, temp;
 	char userAnswer;
 
@@ -217,8 +198,8 @@ int main()
 	}
 	cout << "The max number is : " << max_value << endl;
 
-	//task 5(end)
-
+	//task 5
+	*/
 	double diss_ab, diss_bc, weight;
 	double fuel = 300;
 
@@ -226,7 +207,7 @@ int main()
 	cin >> diss_ab; 
 	cout << "Distance from B to C (km) ->";
 	cin >> diss_bc;
-	cout << "Enter the weight of the cargo (kg) ->\n";
+	cout << "Enter the weight of the cargo (kg) ->";
 	cin >> weight;
 
 	if (weight > 2000) {
@@ -254,6 +235,25 @@ int main()
 	}
 	else {
 		cout << "Error weight!";
+	}
+}
+void TravelVerification(double distance1, double distance2, double fuel_level, double fuelConsumption) {
+	if (fuel_level / fuelConsumption < distance1) {
+		cout << "Can't reach to B (disstance is to big)\n";
+	}
+	else {
+		fuel_level = fuel_level - (fuelConsumption * distance1);
+		cout << "When you will be in B, fuel level will be: " << fuel_level << " liters." << endl;
+		cout << "You need " << (distance2 * fuelConsumption) << " liters of the fuel to reach C.\n";
+		if ((distance2 * fuelConsumption) - fuel_level < 0) {
+			cout << "You have enough fuel to reach C!\n";
+		}
+		else {
+			cout << "We need to add " << (distance2 * fuelConsumption) - fuel_level << " liters of the fuel minimum.\n";
+		}
+		if (distance2 * fuelConsumption > 300) {
+			cout << "And the tank of the plane is 300 liters only. We can't fly to C!\n";
+		}
 	}
 }
 
