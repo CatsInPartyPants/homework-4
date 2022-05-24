@@ -4,9 +4,30 @@
 #include <iostream>
 #include <Windows.h>
 #include <cmath>
-#include <vector>
 
 using namespace std;
+
+//task 5 (start)
+
+void TravelVerification(double distance1, double distance2, double fuel_level, double fuelConsumption) {
+	if (fuel_level / fuelConsumption < distance1) {
+		cout << "Can't reach to B (disstance is to big)\n";
+	}
+	else {
+		fuel_level = fuel_level - (fuelConsumption * distance1);
+		cout << "You are in B. fuel is: " << fuel_level << endl;
+		cout << "You need " << (distance2 * fuelConsumption) << " liters of the fuel to reach C.\n";
+		if ((distance2 * fuelConsumption) - fuel_level < 0) {
+			cout << "You have enough fuel to reach C!\n";
+		}
+		else {
+			cout << "We need to add " << (distance2 * fuelConsumption) - fuel_level << " liters of the fuel minimum.\n";
+		}
+		if ((distance2 * fuelConsumption) + fuel_level > 300) {
+			cout << "And the tank of the plane is 300 liters only. We can't fly to C!\n";
+		}
+	}
+}
 
 int main()
 {
@@ -14,25 +35,25 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	//task1
-	/*
+	
 	double userSelect, temp;
 	char userAnswer;
 
 	while (1) {
-		cout << "Программа-конвертер валют\n"
-			<< "\tМеню:\n"
-			<< "\t\t1. Узнать курс доллара\n"
-			<< "\t\t2. Узнать курс евро\n"
-			<< "\t\t3. Перевести рубли в доллары\n"
-			<< "\t\t4. Перевести рубли в евро\n"
-			<< "\t\t5. Перевести доллары в рубли\n"
-			<< "\t\t6. Перевести евро в рубли\n"
+		cout << "currency converter program\n"
+			<< "\tMenu:\n"
+			<< "\t\t1. dollar exchange rate\n"
+			<< "\t\t2. euro exchange rate\n"
+			<< "\t\t3. rubles -> dollars\n"
+			<< "\t\t4. rubles -> euro\n"
+			<< "\t\t5. dollars -> rubles\n"
+			<< "\t\t6. euro -> rubles\n"
 			<< "\t\t0. Выход\n";
 		cin >> userSelect;
 		if (userSelect == 1) {
-			cout << "Курс доллара 62 рубля.\n";
+			cout << "dollar exchange rate 62 rub.\n";
 
-			cout << "Продолжить? y/n\n";
+			cout << "Continue? y/n\n";
 			cin >> userAnswer;
 			if (userAnswer == 'y') {
 				system("CLS");
@@ -43,9 +64,9 @@ int main()
 			}
 		}
 		else if (userSelect == 2) {
-			cout << "Курс евро 65 рублей.\n";
+			cout << "euro exchange rate 65 rub.\n";
 
-			cout << "Продолжить? y/n\n";
+			cout << "Continue? y/n\n";
 			cin >> userAnswer;
 			if (userAnswer == 'y') {
 				system("CLS");
@@ -56,11 +77,11 @@ int main()
 			}
 		}
 		else if (userSelect == 3) {
-			cout << "Перевести рубли в доллары, укажите какое количество рублей переводим в доллары?\n";
+			cout << "How much rubles do you want to exchange to dollars?\n";
 			cin >> temp;
-			cout << "Вы получите " << round((temp / 62)*100)/100 << " долларов!\n";
+			cout << "You will get " << round((temp / 62)*100)/100 << " dollars!\n";
 
-			cout << "Продолжить? y/n\n";
+			cout << "Continue? y/n\n";
 			cin >> userAnswer;
 			if (userAnswer == 'y') {
 				system("CLS");
@@ -71,11 +92,11 @@ int main()
 			}
 		}
 		else if (userSelect == 4) {
-			cout << "Перевести рубли в евро, укажите какое количество рублей переводим в евро?\n";
+			cout << "How much rubbles do you want to exchange to euro?\n";
 			cin >> temp;
-			cout << "Вы получите  " << round((temp / 65)*100)/100 << " евро!\n";
+			cout << "You will get  " << round((temp / 65)*100)/100 << " euro!\n";
 
-			cout << "Продолжить? y/n\n";
+			cout << "Continue? y/n\n";
 			cin >> userAnswer;
 			if (userAnswer == 'y') {
 				system("CLS");
@@ -86,11 +107,11 @@ int main()
 			}
 		}
 		else if (userSelect == 5) {
-			cout << "Какое количество долларов вы хотите продать?\n";
+			cout << "How much dollars do you want to sell?\n";
 			cin >> temp;
-			cout << "Вы получите за это " << round((temp * 62)*100)/100 << " рублей!\n";
+			cout << "You will get " << round((temp * 62)*100)/100 << " rubles!\n";
 
-			cout << "Продолжить? y/n\n";
+			cout << "Continue? y/n\n";
 			cin >> userAnswer;
 			if (userAnswer == 'y') {
 				system("CLS");
@@ -101,11 +122,11 @@ int main()
 			}
 		}
 		else if (userSelect == 6) {
-			cout << "Какое количество евро вы хотите продать?\n";
+			cout << "How much euros do you want to sell?\n";
 			cin >> temp;
-			cout << "Вы получите за это " << round((temp * 65)*100)/100 << " рублей!\n";
+			cout << "You will get " << round((temp * 65)*100)/100 << " rubles!\n";
 
-			cout << "Продолжить? y/n\n";
+			cout << "Continue? y/n\n";
 			cin >> userAnswer;
 			if (userAnswer == 'y') {
 				system("CLS");
@@ -119,20 +140,20 @@ int main()
 			break;
 		}
 	}
-	*/
+	
 
 	//task2
 
-	/*
+	
 	int number;
 	int n1, n2, n3, n4, n5, n6;
-	cout << "Введите целое шестизначное число -> ";
+	cout << "enter a six-digit number -> ";
 	cin >> number;
 	if (number / 100000 < 1 || number/100000 >9) {
-		cout << "Введено не шестизначтое число!\n";
+		cout << "it is not a six-digit number!\n";
 	}
 	else {
-		cout << "Введено шестизначное число!\n";
+		cout << "it is a six-digit number!\n";
 		n6 = number % 10;
 		number /= 10;
 		n5 = number % 10;
@@ -146,27 +167,26 @@ int main()
 		n1 = number % 10;
 		number /= 10;
 		if ((n1 + n2 + n3) == (n4 + n5 + n6)) {
-			cout << "Данное число счастливое!\n";
+			cout << "Happy!\n";
 		}
 		else {
-			cout << "Это число не счастливое!\n";
+			cout << "Not happy!\n";
 		}
 
 	}
-	*/
+
 
 	//task3
-
-	/*
+		
 	int user_num;
 	int first_num, second_num, third_num, fourth_num;
-	cout << "Введите четырехзначное число ->";
+	cout << "enter a 4-digit number ->";
 	cin >> user_num;
 	if (user_num / 1000 < 1 || user_num / 1000 > 9) {
-		cout << "Введено не четырехзначное число!\n";
+		cout << "it is not 4-digin number!\n";
 	}
 	else {
-		cout << "Введено четырехзначное число\n";
+		cout << "It is 4-digit number\n";
 		fourth_num = user_num % 10;
 		user_num /= 10;
 		third_num = user_num % 10;
@@ -174,23 +194,24 @@ int main()
 		second_num = user_num % 10;
 		user_num /= 10;
 		first_num = user_num;
-		cout << "До модификации:\n";
+		cout << "Before:\n";
 		cout << first_num << " " << second_num << " " << third_num << " " << fourth_num << endl;
-		cout << "После модификации:\n";
+		cout << "After:\n";
 		cout << second_num * 1000 + first_num * 100 + fourth_num * 10 + third_num << endl;
 	}
-	*/
+
 
 	//task4
 
-	/*
+	
 	int user_numbers[7] {0};
-	cout << "Введите 7 чисел:\n";
+	cout << "Enter 7 numbers:\n";
 	for (int i = 0; i <= 6; i++) {
 		int user_number;
 		cin >> user_number;
 		user_numbers[i] = user_number;
-		if(i<6)	cout << "Следующее:\n";
+		if(i<6)	
+			cout << "Next:\n";
 	}
 	
 	int max_value=0;
@@ -199,10 +220,47 @@ int main()
 			max_value = user_numbers[i];
 		}
 	}
-	cout << "Наибольшее введенное число: " << max_value << endl;
-	*/
+	cout << "The max number is : " << max_value << endl;
 
-	//task 5
+	//task 5(end)
+
+	double diss_ab, diss_bc, weight;
+	double fuel = 300;
+
+	cout << "Distance from A to B (km) ->";
+	cin >> diss_ab; 
+	cout << "Distance from B to C (km) ->";
+	cin >> diss_bc;
+	cout << "Enter the weight of the cargo (kg) ->\n";
+	cin >> weight;
+
+	if (weight > 2000) {
+		cout << "Can't flight: weight is too high!\n";
+	}
+	else if (weight > 1500) 
+	{
+		double fuelCons = 9;
+		TravelVerification(diss_ab, diss_bc, fuel, fuelCons);
+	}
+	else if (weight > 1000) 
+	{
+		double fuelCons = 7;
+		TravelVerification(diss_ab, diss_bc, fuel, fuelCons);
+	}
+	else if (weight > 500)
+	{
+		double fuelCons = 4;
+		TravelVerification(diss_ab, diss_bc, fuel, fuelCons);
+	}
+	else if (weight < 500 && weight >0)
+	{
+		double fuelCons = 1;
+		TravelVerification(diss_ab, diss_bc, fuel, fuelCons);
+	}
+	else {
+		cout << "Error weight!";
+	}
+
 
 
 }
